@@ -1,0 +1,64 @@
+{% extends "admin/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+<div class="row">
+    <div class="col-md-6">
+        <h2>姓名：{{ re.name }}</h2>
+        <hr/>
+        {% if (re.sex == 1) %}
+        <h2>性别：男</h2>
+        {% elif (re.sex == 2) %}
+        <h2>性别：女</h2>
+        {% endif %}
+        <hr/>
+        <h2>学号：{{ re.studentid }}</h2>
+        <hr/>
+        <h2>手机号：{{ re.phone }}</h2>
+        <hr/>
+        {% if (re.grade == 1) %}
+        <h2>年级：大一</h2>
+        {% elif (re.grade == 2) %}
+        <h2>年级：大二</h2>
+        {% elif (re.grade == 3) %}
+        <h2>年级：大三</h2>
+        {% elif (re.grade == 4) %}
+        <h2>年级：大四</h2>
+        {% endif %}
+        <hr/>
+        <h2>专业：{{ re.major }}</h2>
+        <hr/>
+        <h2>邮箱：{{ re.email }}</h2>
+        <hr/>
+        {% if (re.question3 == 1) %}
+        <h2>第一志愿：电脑部</h2>
+        {% elif (re.question3 == 2) %}
+        <h2>第一志愿：电器部</h2>
+        {% elif (re.question3 == 3) %}
+        <h2>第一志愿：财外部</h2>
+        {% elif (re.question3 == 4) %}
+        <h2>第一志愿：人资部</h2>
+        {% elif (re.question3 == 5) %}
+        <h2>第一志愿：文宣部</h2>
+        {% endif %}
+        <hr/>
+        {% if (re.question4 == 1) %}
+        <h2>第一志愿：电脑部</h2>
+        {% elif (re.question4 == 2) %}
+        <h2>第一志愿：电器部</h2>
+        {% elif (re.question4 == 3) %}
+        <h2>第一志愿：财外部</h2>
+        {% elif (re.question4 == 4) %}
+        <h2>第一志愿：人资部</h2>
+        {% elif (re.question4 == 5) %}
+        <h2>第一志愿：文宣部</h2>
+        {% endif %}
+        <hr/>
+
+    </div>
+    <div class="col-md-6">
+        <h2>照片：</h2>
+        <img src='{{ re.photo }}' style="width:400px">
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}管理员界面{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
+<link rel="icon" href="static/favicon.ico" type="image/x-icon">
+{{ pagedown.include_pagedown() }}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% block page_content %}{% endblock %}
+    </div>
+    <div class="footer">
+        <ul class="list-inline text-center">
+            <hr />
+            <li>浙江大学东三-200 <strong><a href="//zjueva.cn/" >浙江大学学生E志者协会</a></strong>
+                备案号：浙ICP备17008331号</li>
+        </ul>
+    </div>
+{% endblock %}
+
+
+

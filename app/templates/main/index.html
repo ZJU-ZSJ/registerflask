@@ -1,0 +1,15 @@
+{% extends "admin/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block page_content %}
+    <div class="col-md-6">
+        <h1>E志者2017秋季纳新</h1>
+        <hr>
+        {{ wtf.quick_form(form) }}
+    </div>
+    <div class="col-md-6">
+    </div>
+{% if file_url %}
+<br><img src="{{ file_url }}">
+{% endif %}
+{% endblock %}

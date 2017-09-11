@@ -1,0 +1,25 @@
+{% extends "admin/base.html" %}
+
+{%  block page_content%}
+    <div class="container">
+    <table class="table">
+            <thead>
+            <tr>
+                <th>姓名</th>
+                <th>学号</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for foo in list %}
+                <tr>
+                    <th>{{ foo.id }}</th>
+                    <th>{{ foo.title }}</th>
+                    <th><a href="{{ url_for('admin.check', id=foo.id) }}" class="button small">查看</a></th>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
