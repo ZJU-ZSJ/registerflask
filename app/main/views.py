@@ -23,7 +23,7 @@ def baoming():
     form = Addstudentsform()
     if form.validate_on_submit():
         filename = photos.save(form.photo.data,name=str(datetime.datetime.now())+form.studentid.data+'.')
-        file_url = photos.url(filename)
+        file_url = url_for('static',filename = ('uploads/'+str(filename)))
         students = Students(studentid = form.studentid.data,name = form.name.data,sex = form.sex.data,grade = form.grade.data,major = form.major.data,phone = form.phone.data,email = form.email.data,question3 = form.wants1.data,question4 = form.wants2.data,question5 = form.follow.data,photo = file_url)
         i = 1
         while (i):
