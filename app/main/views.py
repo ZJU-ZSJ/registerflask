@@ -23,6 +23,8 @@ def index():
 
 
 
+
+
 @main.route('/yanzheng')
 def yanzheng():
     """Add two numbers server side, ridiculous but well..."""
@@ -69,7 +71,7 @@ def baoming():
                     db.session.commit()
                     print '1'
                     i = 0
-                    return render_template('main/ok.html')
+                    return render_template('main/finish.html')
                 except:
                     db.session.rollback()
                     flash(u'提交失败')

@@ -14,7 +14,7 @@ class LoginForm(FlaskForm):
     submit = SubmitField(u'登入')
 
 class DownloadForm(FlaskForm):
-    submit = SubmitField(u'下载')
+    submit = SubmitField(u'删除')
 
 
 class RegistrationForm(FlaskForm):

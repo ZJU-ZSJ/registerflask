@@ -4,6 +4,10 @@
 {% block page_content %}
 <div class="row">
     <div class="col-md-6">
+        <a href="{{ doc_url }}">
+        <button type="button" class="btn btn-default btn-lg">
+          <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>点击下载电脑记录
+        </button></a>
         <h2>姓名：{{ re.name }}</h2>
         <hr/>
         {% if (re.sex == 1) %}
@@ -106,8 +110,5 @@
         <hr/>
 <h2>面试时间备注：</h2>
 <p>{{ re.remarks }}</p>
-    <a href="{{ doc_url }}">
-        <button type="button" class="btn btn-default btn-lg">
-          <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>点击下载电脑记录
-        </button></a>
+{{ wtf.quick_form(form) }}
 {% endblock %}

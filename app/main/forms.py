@@ -35,7 +35,7 @@ class Addstudentsform(FlaskForm):
     day29 = BooleanField(u'9.29晚18:30-22:00')
     day30 = BooleanField(u'9.30下午14:00-17:30')
     remarks = StringField(u'有关面试时间的备注:')
-    photo = FileField(u'照片上传(上传纯中文照片可能会出错)，大小限制：3MB', validators=[
+    photo = FileField(u'照片上传(上传纯中文名照片可能会出错)，大小限制：3MB', validators=[
         FileAllowed(photos, u'只能上传图片！'),
         FileRequired(u'文件未选择！')
     ])

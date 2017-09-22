@@ -37,6 +37,14 @@ def record():
 @login_required
 def look(id):
     form = DownloadForm()
+    if form.validate_on_submit():
+        cord = Students.query.get_or_404(id)
+        try:
+            db.session.delete(cord)
+            db.session.commit()
+            return redirect(url_for('admin.record'))
+        except:
+            return redirect(url_for('admin.look', id=id))
     re = db.session.query(Students).filter(Students.id == id).one()
     docname = str(re.studentid) + '.docx'
     print docname
@@ -140,7 +148,7 @@ def register():
                 except:
                     db.session.rollback()
                     flash(u'用户名已存在')
-    return render_template('admin/register.html', form=form)
+    return 0
 
 
 @admin.route('/logout')
