@@ -42,6 +42,9 @@
         <h2>第一志愿：文宣部</h2>
         {% endif %}
         <hr/>
+        <h2>请简述你选择该部门作为第一志愿的原因.</h2>
+        <p>{{ re.whywants1 }}</p>
+        <hr/>
         {% if (re.question4 == 1) %}
         <h2>第一志愿：电脑部</h2>
         {% elif (re.question4 == 2) %}
@@ -54,11 +57,57 @@
         <h2>第一志愿：文宣部</h2>
         {% endif %}
         <hr/>
-
+        <h2>请简述你选择该部门作为第二志愿的原因.</h2>
+        <p>{{ re.whywants2 }}</p>
+        <hr/>
+        {% if (re.question5 == 1) %}
+        <h2>服从志愿</h2>
+        {% elif (re.question5 == 2) %}
+        <h2>不服从志愿</h2>
+        {% endif %}
+        <hr/>
     </div>
     <div class="col-md-6">
         <h2>照片：</h2>
         <img src='{{ re.photo }}' style="width:400px">
     </div>
 </div>
+        <h2>个人简介</h2>
+        <p>{{ re.intro }}</p>
+        <hr/>
+        <h2>请简述你想加入E志者协会的理由。</h2>
+        <p>{{ re.why }}</p>
+        <hr/>
+        <h2>请简述你能给E志者带来什么。</h2>
+        <p>{{ re.what }}</p>
+        <hr/>
+        <h2>没空时间：</h2>
+        {% if (re.day25 == 1) %}
+        <p>25晚</p>
+        {% endif %}
+        {% if (re.day26 == 1) %}
+        <p>26晚</p>
+        {% endif %}
+        {% if (re.day27 == 1) %}
+        <p>27晚</p>
+        {% endif %}
+        {% if (re.day28 == 1) %}
+        <p>28晚</p>
+        {% endif %}
+        {% if (re.day291 == 1) %}
+        <p>29中午</p>
+        {% endif %}
+        {% if (re.day29 == 1) %}
+        <p>29晚</p>
+        {% endif %}
+        {% if (re.day30 == 1) %}
+        <p>30晚</p>
+        {% endif %}
+        <hr/>
+<h2>面试时间备注：</h2>
+<p>{{ re.remarks }}</p>
+    <a href="{{ doc_url }}">
+        <button type="button" class="btn btn-default btn-lg">
+          <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>点击下载电脑记录
+        </button></a>
 {% endblock %}

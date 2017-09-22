@@ -1,0 +1,33 @@
+{% extends "admin/base.html" %}
+
+{% block navbar %}
+<div class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">浙江大学学生E志者协会</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/admin/download"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>记录下载</a></li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{%  block page_content%}
+    <div class="container">
+        <a href="{{ url_for('static', filename='record/record.xls') }}">
+        <button type="button" class="btn btn-default btn-lg">
+          <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>点击下载记录
+        </button></a>
+    </div>
+{% endblock %}

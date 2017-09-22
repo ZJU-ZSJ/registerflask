@@ -1,0 +1,32 @@
+.control-label {
+    font-size:200%;
+    margin: 0 auto;
+    width: 200px;
+}
+.textarea {
+    resize: none;
+    overflow:auto;;
+}
+
+.checkbox {
+    font-size:300%;
+}
+
+[type=checkbox] {
+    height: 20px;
+    width: 20px;
+}
+
+#photo {
+    font-size: 300%;
+}
+
+#remarks,#ver {
+    width: 50%;
+}
+
+.help-block {
+    font-size:400%;
+    width: 60%;
+}
+

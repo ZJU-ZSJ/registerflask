@@ -13,6 +13,9 @@ class LoginForm(FlaskForm):
     password = PasswordField(u'密码', validators=[Required()])
     submit = SubmitField(u'登入')
 
+class DownloadForm(FlaskForm):
+    submit = SubmitField(u'下载')
+
 
 class RegistrationForm(FlaskForm):
     username = StringField(u'用户名', validators=[Required(), length(6, 18), Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0, u'用户名只允许字母')])

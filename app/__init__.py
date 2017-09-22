@@ -8,11 +8,13 @@ from flask_pagedown import PageDown
 from config import config
 from flask_uploads import UploadSet, configure_uploads, IMAGES,\
  patch_request_class
+from docx import Document
 
 db = SQLAlchemy()
 bootstrap = Bootstrap()
 login_manager = LoginManager()
 pagedown = PageDown()
+document = Document()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'admin.login'
 login_manager.login_message = u'请登入账号再进行下一步操作！'
@@ -27,7 +29,7 @@ def create_app(config_name):
     basepath = os.path.dirname(__file__)
     app.config['UPLOADED_PHOTOS_DEST'] = os.path.join(basepath, 'static/uploads')
     configure_uploads(app, photos)
-    patch_request_class(app)  # 文件大小限制，默认为16MB
+    patch_request_class(app,size = 3*1024*1024)  # 文件大小限制，默认为16MB
 
     db.init_app(app)
     bootstrap.init_app(app)

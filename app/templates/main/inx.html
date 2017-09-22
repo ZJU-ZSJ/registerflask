@@ -1,0 +1,33 @@
+<script  src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+
+<script type=text/javascript>
+  $(function() {
+    $('a#calculate').bind('click', function() {
+      $.getJSON('http://naxin.zjueva.cn/yanzheng', {
+        a: $('input[name="a"]').val()
+      }, function(data) {
+        $("#result").text(data.result);
+      });
+      return false;
+    });
+  });
+</script>
+
+<script type=text/javascript>
+  $(function() {
+    $('a#changeimg').bind('click', function() {
+      $.getJSON('http://naxin.zjueva.cn/changeimg', {
+      }, function(data) {
+        $("#pic").attr('src',data.code_url);
+      });
+      return false;
+    });
+  });
+</script>
+
+
+<p><input type=text size=5 name=a>
+   <span id=result>?</span>
+<img id="pic" src='{{ code }}' style="width:400px">
+<p><a href=# id=calculate>验证</a>
+    <a href=# id=changeimg>看不清？</a>
