@@ -38,6 +38,7 @@
                         <th>第一志愿</th>
                         <th>第二志愿</th>
                         <th>操作</th>
+                        <th>查看照片</th>
                     </tr>
                 </thead>
                 {% for student in list %}
@@ -78,7 +79,8 @@
                         {% else %}
                         <td>部门选项出错</td>
                         {% endif %}
-                        <td><a href="{{ url_for('admin.look', id=student.id) }}" class="button small">查看</a></td>
+                        <td><a href="{{ url_for('admin.look', id=student.id) }}" class="button small">查看报名信息</a></td>
+                        <td><a href="{{ student.photo }}" class="button small">查看照片</a></td>
                 </tbody>
                 {% endfor %}
             </table>

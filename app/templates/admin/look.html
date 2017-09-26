@@ -6,7 +6,7 @@
     <div class="col-md-6">
         <a href="{{ doc_url }}">
         <button type="button" class="btn btn-default btn-lg">
-          <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>点击下载电脑记录
+          <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>点击下载记录
         </button></a>
         <h2>姓名：{{ re.name }}</h2>
         <hr/>
@@ -50,15 +50,15 @@
         <p>{{ re.whywants1 }}</p>
         <hr/>
         {% if (re.question4 == 1) %}
-        <h2>第一志愿：电脑部</h2>
+        <h2>第二志愿：电脑部</h2>
         {% elif (re.question4 == 2) %}
-        <h2>第一志愿：电器部</h2>
+        <h2>第二志愿：电器部</h2>
         {% elif (re.question4 == 3) %}
-        <h2>第一志愿：财外部</h2>
+        <h2>第二志愿：财外部</h2>
         {% elif (re.question4 == 4) %}
-        <h2>第一志愿：人资部</h2>
+        <h2>第二志愿：人资部</h2>
         {% elif (re.question4 == 5) %}
-        <h2>第一志愿：文宣部</h2>
+        <h2>第二志愿：文宣部</h2>
         {% endif %}
         <hr/>
         <h2>请简述你选择该部门作为第二志愿的原因.</h2>
@@ -105,7 +105,7 @@
         <p>29晚</p>
         {% endif %}
         {% if (re.day30 == 1) %}
-        <p>30晚</p>
+        <p>30下午</p>
         {% endif %}
         <hr/>
 <h2>面试时间备注：</h2>

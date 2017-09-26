@@ -21,6 +21,10 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 def index():
     return redirect(url_for('main.baoming'))
 
+@main.route('/end', methods=['GET', 'POST'])
+def end():
+    return render_template('main/end.html')
+
 
 
 
@@ -51,10 +55,12 @@ def baoming():
     form = Addstudentsform()
     if form.validate_on_submit():
         print form.ver.data
-        if (form.wants1.data == form.wants2.data=='1') or (form.wants1.data == form.wants2.data=='2') or (int(form.wants1.data)+int(form.wants2.data) == 3):
-            flash(u'技术部只能选择一个')
+        if (int(form.wants1.data)+int(form.wants2.data) == 3):
+            flash(u'提交失败：技术部（电脑部和电器部）只能选择一个')
+        elif (form.wants1.data == form.wants2.data):
+            flash(u'提交失败：两个志愿不得相同')
         elif (form.ver.data.upper()!=session['code']):
-            flash(u'验证码错误')
+            flash(u'提交失败：验证码错误')
         else:
             pname = str(time.time())+form.studentid.data
             filename = photos.save(form.photo.data,name=pname+'.')
@@ -74,7 +80,7 @@ def baoming():
                     return render_template('main/finish.html')
                 except:
                     db.session.rollback()
-                    flash(u'提交失败')
+                    flash(u'提交失败，请仔细检查是否填写正确')
     else:
         file_url = None
     code_url = codeimg()

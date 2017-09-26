@@ -28,7 +28,14 @@
           return false;
         });
       });
+      </script>
+      {% for message in get_flashed_messages() %}
+      <script type=text/javascript>
+      $(document).ready(function(){
+          alert('{{ message }}');
+        });
     </script>
+        {% endfor %}
     </head>
 <div class="main">
 	<body class="demo-1" style="overflow:-Scroll;overflow-x:hidden">
@@ -141,8 +148,6 @@
                     {{ wtf.form_field(form.what) }}
                      {{ wtf.form_field(form.follow) }}
                      <font size="200%">请选择<font color="black"><strong>没空</strong></font>的面试时间</font>
-                     {{ wtf.form_field(form.day25) }}
-                     {{ wtf.form_field(form.day26) }}
                      {{ wtf.form_field(form.day27) }}
                      {{ wtf.form_field(form.day28) }}
                      {{ wtf.form_field(form.day291) }}

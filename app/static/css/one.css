@@ -1,26 +1,4 @@
-.control-label {
-    font-size:200%;
+body {
+    padding-top: 200px;
+    background-color: silver;
 }
-.textarea {
-    resize: none;
-    overflow:auto;;
-}
-
-.checkbox {
-    font-size:300%;
-}
-
-[type=checkbox] {
-    height: 20px;
-    width: 20px;
-}
-
-#photo {
-    font-size: 300%;
-}
-
-
-.help-block {
-    font-size:400%;
-}
-
