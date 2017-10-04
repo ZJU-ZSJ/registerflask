@@ -48,11 +48,12 @@ def look(id):
     re = db.session.query(Students).filter(Students.id == id).one()
     docname = str(re.studentid) + '.docx'
     print docname
-    '''
     document.add_heading(re.name, 0)
+    '''
     document.add_picture('/var/www/registerflask/app/static/uploads/' + str(re.filename),
                             width=Inches(1.25))
-    table = document.add_table(rows=2, cols=8, style='Table Grid')
+    '''
+    table = document.add_table(rows=2, cols=9, style='Table Grid')
     hdr_cells = table.rows[0].cells
     hdr_cells[0].text = u"性别"
     hdr_cells[1].text = u"学号"
@@ -62,6 +63,7 @@ def look(id):
     hdr_cells[5].text = u"邮箱"
     hdr_cells[6].text = u"第一志愿"
     hdr_cells[7].text = u"第二志愿"
+    hdr_cells[8].text = u"是否服从调剂"
 
     hdr_cells = table.rows[1].cells
     if str(re.sex) == '1':
@@ -105,6 +107,10 @@ def look(id):
     elif str(re.question4) == '5':
         hdr_cells[7].text = u'文宣部'
 
+    if re.question5 == 1:
+        hdr_cells[8].text = u'服从'
+    else:
+        hdr_cells[8].text = u'不服从'
     document.add_heading(u' 请简述你选择该部门作为第二志愿的原因。', 1)
     document.add_paragraph(re.whywants2, style='IntenseQuote')
 
@@ -123,7 +129,6 @@ def look(id):
     if os.path.isfile('app/static/doc'+docname):
         os.system("rm " + docname + "  app/static/doc/")
     os.system("mv " + docname + "  app/static/doc/")
-    '''
     doc_url = url_for('static', filename=('doc/' + str(docname)))
     return render_template("admin/look.html", re = re,form = form,doc_url = doc_url)
 
