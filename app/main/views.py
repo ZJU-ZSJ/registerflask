@@ -1,7 +1,7 @@
 #-*- coding=utf-8 -*-
 from flask import render_template, flash, redirect, url_for, request,session,jsonify
 from . import main
-from .forms import Addstudentsform,UploadForm
+from .forms import Addstudentsform
 from .. import db
 from datetime import datetime
 import datetime
@@ -17,9 +17,7 @@ from docx.shared import Inches
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 
-@main.route('/', methods=['GET', 'POST'])
-def index():
-    return redirect(url_for('main.baoming'))
+
 
 @main.route('/end', methods=['GET', 'POST'])
 def end():
@@ -50,26 +48,16 @@ def inx():
     return render_template('main/inx.html',code = code_url)
 
 
-@main.route('/joinus', methods=['GET', 'POST'])
+@main.route('/', methods=['GET', 'POST'])
 def baoming():
+    return redirect(url_for('main.end'))
     form = Addstudentsform()
     if form.validate_on_submit():
-        print form.ver.data
-        if (int(form.wants1.data)+int(form.wants2.data) == 3):
-            flash(u'提交失败：技术部（电脑部和电器部）只能选择一个')
-        elif (form.wants1.data == form.wants2.data):
-            flash(u'提交失败：两个志愿不得相同')
-        elif (form.ver.data.upper()!=session['code']):
+        if (form.ver.data.upper()!=session['code']):
             flash(u'提交失败：验证码错误')
         else:
-            pname = str(time.time())+form.studentid.data
-            filename = photos.save(form.photo.data,name=pname+'.')
-            file_url = url_for('static', filename=('uploads/' + str(filename)))
-            students = Students(studentid = form.studentid.data,name = form.name.data,sex = form.sex.data,grade = form.grade.data,major = form.major.data,phone = form.phone.data,email = form.email.data,question3 = form.wants1.data,
-                                question4 = form.wants2.data,question5 = form.follow.data,photo = file_url,
-                                intro = form.intro.data,why = form.why.data,what = form.what.data,day25 = form.day25.data,
-                                day26 = form.day26.data,day27 = form.day27.data,day28 = form.day28.data,day291 = form.day291.data,
-                                day29 =form.day29.data,day30 = form.day30.data,remarks = form.remarks.data,filename = filename,whywants1 = form.whywants1.data,whywants2 = form.whywants2.data )
+            students = Students(studentid = form.studentid.data,name = form.name.data,sex = form.sex.data,grade = form.grade.data,major = form.major.data,phone = form.phone.data,email = form.email.data,question1 = form.question1.data,question2 = form.question2.data,question3 = form.question3.data,question4 = form.question4.data,
+                                question5=form.question5.data,question6=form.question6.data,day242 = form.day242.data,day243 = form.day243.data,day244 = form.day244.data,day251 = form.day251.data,day252 = form.day252.data,day253 = form.day253.data,day254 = form.day254.data,day261 = form.day261.data,day262 = form.day262.data,day263 = form.day263.data)
             i = 1
             while (i):
                 try:
@@ -81,8 +69,6 @@ def baoming():
                 except:
                     db.session.rollback()
                     flash(u'提交失败，请仔细检查是否填写正确')
-    else:
-        file_url = None
     code_url = codeimg()
     return render_template('main/index.html',form = form, code = code_url)
 

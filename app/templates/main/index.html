@@ -21,7 +21,7 @@
 	<script type=text/javascript>
       $(function() {
         $('a#changeimg').bind('click', function() {
-          $.getJSON('http://naxin.zjueva.cn/changeimg', {
+          $.getJSON('http://jphd.zjueva.cn/changeimg', {
           }, function(data) {
             $("#pic").attr('src',data.code_url);
           });
@@ -122,7 +122,11 @@
 			<!-- main content -->
 			<div class="ip-main">
 
-				<h2 style="padding-top:5.5em;">Welcome to EVA.</h2>
+				<center><h3 style="padding-top:12em;line-height: 200%">哈罗，欢迎关注E志者和我们的拆机体验营。
+                    </br>
+以往都是你们看我们拆机</br>而这次我们要让你拆给我们看！</br>
+11月24-26日</br>我们准备好了一切</br>在东三107等你来拆机~
+            </h3></center>
                 {% for message in get_flashed_messages() %}
             <div class="alert alert-warning">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -138,23 +142,29 @@
                     {{ wtf.form_field(form.grade) }}
                     {{ wtf.form_field(form.major) }}
                     {{ wtf.form_field(form.email) }}
-                     <center><font size="6" color="black"><strong>两个志愿中，技术部（电脑部和电器部）只能选一个</strong></font></center>
-                    {{ wtf.form_field(form.wants1) }}
-                    {{ wtf.form_field(form.whywants1) }}
-                    {{ wtf.form_field(form.wants2) }}
-                     {{ wtf.form_field(form.whywants2) }}
-                    {{ wtf.form_field(form.intro) }}
-                    {{ wtf.form_field(form.why) }}
-                    {{ wtf.form_field(form.what) }}
-                     {{ wtf.form_field(form.follow) }}
-                     <font size="200%">请选择<font color="black"><strong>没空</strong></font>的面试时间</font>
-                     {{ wtf.form_field(form.day27) }}
-                     {{ wtf.form_field(form.day28) }}
-                     {{ wtf.form_field(form.day291) }}
-                     {{ wtf.form_field(form.day29) }}
-                     {{ wtf.form_field(form.day30) }}
-                     {{ wtf.form_field(form.remarks) }}
-                     {{ wtf.form_field(form.photo) }}
+                     <font color="black"><strong><h3>以下几个问题是为了初步考察大家对拆机的了解程度以便于分组，请根据自己的实际情况作答</h3></strong></font>
+                     {{ wtf.form_field(form.question1)}}
+                     {{ wtf.form_field(form.question2)}}
+                     {{ wtf.form_field(form.question3)}}
+                     <img id="pic2" src="{{ url_for('static', filename='laptop.jpg') }}" style="width:200px">
+                     {{ wtf.form_field(form.question4)}}
+                     {{ wtf.form_field(form.question5)}}
+                     {{ wtf.form_field(form.question6)}}
+                     <h3>A:</h3><img id="pic3" src="{{ url_for('static', filename='A.jpg') }}" style="width:200px">
+                     <h3>B:</h3><img id="pic4" src="{{ url_for('static', filename='B.jpg') }}" style="width:200px">
+                     <h3>C:</h3><img id="pic5" src="{{ url_for('static', filename='C.jpg') }}" style="width:200px">
+                     <font color="black"><strong><h3>请从下列时间中选出自己有空的活动时间(为了提高报名成功率，请尽可能多选择有空的时间)</h3></strong></font>
+                     {{ wtf.form_field(form.day242) }}
+                     {{ wtf.form_field(form.day243) }}
+                     {{ wtf.form_field(form.day244) }}
+                     {{ wtf.form_field(form.day251) }}
+                     {{ wtf.form_field(form.day252) }}
+                     {{ wtf.form_field(form.day253) }}
+                     {{ wtf.form_field(form.day254) }}
+                     {{ wtf.form_field(form.day261) }}
+                     {{ wtf.form_field(form.day262) }}
+                     {{ wtf.form_field(form.day263) }}
+                     {{ wtf.form_field(form.remarks)}}
                      {{ wtf.form_field(form.ver) }}
                      <img id="pic" src='{{ code }}' style="width:200px">
                      <br/>
